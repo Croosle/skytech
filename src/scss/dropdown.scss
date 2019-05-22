@@ -1,0 +1,98 @@
+@import 'variables';
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  cursor: pointer;
+  padding-left: 16px;
+
+  &:hover {
+    .dropdown-content {
+      display: block;
+    }
+
+    .dropbtn::before {
+      transform: rotate(180deg);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-top: 65px solid $orange;
+      border-right: 16px solid transparent;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: -16px;
+      top: 0;
+      border-top: 65px solid $yellow;
+      border-right: 16px solid transparent;
+    }
+  }
+
+  &-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background: $yellow;
+    text-align: left;
+    padding-bottom: 15px;
+    margin-left: -16px;
+    padding-left: 15px;
+    columns: 2;
+    height: 147px;
+    list-style: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -32px;
+      border-bottom: 147px solid $yellow;
+      border-left: 32px solid transparent;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: -32px;
+      top: 0;
+      border-top: 147px solid $yellow;
+      border-right: 32px solid transparent;
+    }
+  }
+
+  &__link {
+    color: black;
+    width: 100%;
+    font-family: 'OpenSansSemiBold';
+    font-size: 13px;
+    border-bottom: 1px solid #f6dc4e;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: inline-block;
+    min-width: 200px;
+  }
+}
+
+.dropbtn {
+  padding-right: 25px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    right: 12px;
+    top: 47%;
+    transform: translateY(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid $black;
+    transform: rotate(0deg);
+    -webkit-transition: transform 0.3s;
+    transition: transform 0.3s;
+  }
+}
